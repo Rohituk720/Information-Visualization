@@ -1,0 +1,46 @@
+.axis path,
+        .axis line {
+            fill: none;
+            stroke: black;
+            shape-rendering: crispEdges; }
+
+        .axis text {
+            font-family: Courier;
+            font-size: 24px; }
+
+        .bar {
+            fill: lightblue; }
+
+        text.xlabel {
+            font-family: Courier;
+            font-size: 12px;
+            font-weight: bold;
+            text-anchor: middle; }
+
+        text.ylabel {
+            font-family: Courier;
+            font-size: 24px;
+            text-anchor: middle;
+            alignment-baseline: central; }
+
+        text.name {
+            font-family: Courier;
+            font-weight: bold;
+            font-size: 14px;
+            fill: black;
+            text-anchor: middle;
+            alignment-baseline: central; }
+
+        #temp:hover,
+        #grav:hover,
+        #dist:hover {
+            text-decoration: overline; }
+
+        #temp, #grav, #dist {
+            background-color: whitesmoke; }
+
+        p {
+            font-size: 32px; }
+
+        /* svg {
+            background-color: mistyrose; } */

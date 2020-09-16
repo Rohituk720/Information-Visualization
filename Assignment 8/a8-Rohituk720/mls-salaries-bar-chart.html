@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="../node_modules/d3/dist/d3.min.js"></script>
+
+    <style type="text/css">
+        body {
+            text-align: center; }
+            
+        .axis path,
+        .axis line {
+            fill: none;
+            stroke: black;
+            shape-rendering: crispEdges; }
+
+        .label {
+            text-anchor: middle; }
+
+        .bar {
+            fill: orangered; }
+    </style>
+</head>
+
+<body>
+    <h3>MLS base salary 2017</h3>
+    <svg id="chart"></svg>
+
+    <script>
+        d3.csv("mls-salaries-2017.csv", function (d) { return +d.base_salary;})
+            .then(function (data) {
+            var margin = { top: 20, left: 100, bottom: 50, right: 100 },
+                width = 950 - margin.left - margin.right,
+                height = 250 - margin.top - margin.bottom;
+
+            var svg = d3.select("#chart")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
+
+            var sort = window.location.search.substr(1);
+            if (sort) {
+                data.sort(d3.ascending);
+            }
+
+            var x = d3.scaleBand()
+                .domain(d3.range(data.length))
+                .range([0, width]);
+
+            var y = d3.scaleLinear()
+                .domain([0, d3.max(data, function (d) { return d; })])
+                .range([height, 0]);
+
+            svg.selectAll(".bar")
+                .data(data)
+                .enter().append("rect")
+                .attr("class", "bar")
+                .attr("x", function (d, i) { return x(i); })
+                .attr("y", function (d) { return y(d); })
+                .attr("width", x.bandwidth())
+                .attr("height", function (d) { return height - y(d); });
+
+            var xAxis = d3.axisBottom()
+                .scale(x)
+                .ticks(data.length)
+                .tickSize(0)
+                .tickFormat("");
+
+            svg.append("g")
+                .attr("class", "axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+
+            svg.append("text")
+                .attr("class", "label")
+                .text("Players")
+                .attr("x", width / 2)
+                .attr("y", height + 20);
+
+            var yAxis = d3.axisLeft()
+                .scale(y)
+                .ticks(5, ",.0f");
+
+            svg.append("g")
+                .attr("class", "axis")
+                .call(yAxis);
+
+            svg.append("text")
+                .attr("class", "label")
+                .attr("x", -40)
+                .attr("y", 20)
+                .attr("transform", "rotate(-90)")
+                .append("tspan").text("Salary ($)");
+        });
+    </script>
+</body>
+
+</html>

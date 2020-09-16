@@ -1,0 +1,56 @@
+body {
+    font-family: "Monotype Corosiva";
+    font-size: 20px;
+border-style: solid;
+border-color: black;
+border-width: 20px;
+}
+
+p,ol {
+font-family: "Monotype Corosiva";
+font-size: 20px;
+
+}
+
+.axis text {
+  font: 13px sans-serif;}
+
+
+h1{text-align: center}
+.axis path,
+.axis line {
+  fill: none;
+}
+
+.bar {
+          fill:rgb(233, 236, 20);
+        }
+
+.arc text {
+          font: 15px sans-serif;
+          text-anchor: middle;
+}
+
+.arc path {
+          stroke: #fff;
+          stroke-width: 2px;
+          
+}
+      
+.arc path:hover {
+          stroke: green;
+          fill: green;
+}
+      
+      
+.tooltip-donut {
+          position: absolute;
+          text-align: center;
+          padding: .5rem;
+          background: #FFFFFF;
+          color: #313639;
+          border: 1px solid #313639;
+          border-radius: 8px;
+          pointer-events: none;
+          font-size: 1.3rem;
+}

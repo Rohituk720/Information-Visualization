@@ -1,0 +1,69 @@
+
+<html>
+    <head>
+    <meta charset="utf-8">
+	<script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+	<script src="a4.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <title> INF 554 Assignment 4 </title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align:center;
+            display: inline;		
+    }
+    
+    thead th{
+        background: lightgray; 
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    .bar {
+              fill:#00ffffff;
+            }
+    .scatter {
+                fill:#800000ff;
+    }
+    .bubble {
+                fill:deeppink;
+    }  
+    body {
+        font-family: "Monotype Corosiva";
+        font-size: 18px;
+    }
+    
+    svg{
+        display: block;
+        margin: auto;
+        border:2px;
+        border-color: black;
+    }
+    
+    </style>
+ </head>
+ <body>
+     
+            <header class="w3-container w3-black" style="text-align:center;">
+                    <h1>INF554 Assignment 4</h1>
+                </header>
+                <p><b><u>Dataset Description</u></b>: World Bank staff estimates based on the United Nations Population Division's World Urbanization Prospects. The Rural population percentage of 20 countries as of the year 2018 is visualized using four different visualization techniques.</p>
+                <p><a href="https://data.worldbank.org/indicator/SP.RUR.TOTL.ZS">Click here to view the Data</a></p>
+                <p> 1. HTML Table: View of Rural Population (% of total population) in 2018 for each of the 20 countries</p>
+                <div id="table1" style="text-align:center;height:500px;width:400px;margin:0 auto;" class="table-div w3-table w3-bordered w3-striped"></div>
+                
+                <p> 2. Bar Chart: View of Rural Population (% of total population) in 2018 for each of the 20 countries</p>
+                <svg class="bar-chart" width="800" height="500"></svg>
+
+                <p> 3. Lollipop Chart: View of Rural Population (% of total population) in 2018 for each of the 20 countries</p>
+                <svg class="lollipop-chart" width="800" height="500"></svg>
+                
+                <p> 4. Bubble Chart: View of Rural Population (% of total population) in 2018 for each of the 20 countries</p>
+                <svg class="bubble-chart" width="1000" height="700"></svg>
+					
+				<p style="text-align:center;"> While Japan has the least Rural population , Sri Lanka has the highest. The circle size of each of the countries is proportional to their percentage of Rural Population  </p>
+                    
+ </body>
+</html>

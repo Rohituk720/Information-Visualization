@@ -1,0 +1,24 @@
+{
+  "name": "a8-rohituk720",
+  "version": "1.0.0",
+  "description": "PDMS Link Ex1: http://pdms.usc.edu/~rohitkul/a8/ex1.html\r PDMS Link Ex2: http://pdms.usc.edu/~rohitkul/a8/ex2.html\r PDMS Link Ex5: http://pdms.usc.edu/~rohitkul/a8/ex5.html",
+  "main": "index.js",
+  "dependencies": {
+    "d3": "^5.12.0",
+    "d3-scale-chromatic": "^1.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INF554/a8-Rohituk720.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/INF554/a8-Rohituk720/issues"
+  },
+  "homepage": "https://github.com/INF554/a8-Rohituk720#readme"
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Ex3</title>   
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+    
+    <svg width="720px" height="720px" style="background-color: lightgrey" id="chart2"></svg>
+    <script>
+    var data = [200, 150, 300, 700];
+    var enter_selection = d3.select('#chart2')
+                            .selectAll('rect')
+                            .data(data)
+                            .enter();
+                            enter_selection.append('rect')
+                            .attr('x', function (d, i) { return i * 50; })
+                            .attr('y', function (d) { return 720 - d; })
+                            .attr('width', 20)
+                            .attr('height', function (d) { return d; })
+                            .attr('fill', 'red');
+                            enter_selection.append('text')
+                            .attr('x', function (d, i) { return i * 50; })
+                            .attr('y', function (d) { return 720; })
+                            .attr('font-size', '18px')
+                            .attr('fill', 'white')
+                            .text(function (d,i) { return i; })
+    </script>
+     
+</body>
+</html>

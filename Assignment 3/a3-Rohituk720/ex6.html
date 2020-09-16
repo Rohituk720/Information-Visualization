@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <title>Ex6</title>   
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    </head> 
+    <body>  
+        <script>
+            var dataset = ["Category 1 (200)", "Category 2 (150)", "Category 3 (300)", "Category 4 (700)"]; 
+            var height = ["200px", "150px", "300px", "700px"]
+            d3.select('body')   
+            .selectAll('div')   
+            .data(dataset)   
+            .enter()   
+            .append('div')   
+            .text(function(d) { return d; });
+            d3.selectAll("div").style("background-color", "blue").style("height", "25px").style("border", "5px solid green")
+            .style("margin-bottom", "2px").style("text-align", "right").style("font-size", "16px").style("color", "white"); 
+            d3.selectAll("div").data(height).style("width", function(d) {return d});
+        </script>
+    </body> 
+</html>

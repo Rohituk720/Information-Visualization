@@ -1,0 +1,22 @@
+{
+  "name": "a7-rohituk720",
+  "version": "1.0.0",
+  "description": "Created Ex1 and Used d3 and JSON.stringify to print in the page:\r 1. A copy of the array (use array.slice)\r 2. The min key (use d3.min)\r 3. The max value (use d3.max)\r 4. Array sorted in ascending order by key (use array.sort, d3.ascending)\r 5. Array sorted in descending order by value (use array.sort, d3.descending)\r 6. Array containing the top 5 items sorted by value (use array.slice)\r 7. Array with a label key as shown (use array.map)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INF554/a7-Rohituk720.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/INF554/a7-Rohituk720/issues"
+  },
+  "homepage": "https://github.com/INF554/a7-Rohituk720#readme",
+  "dependencies": {
+    "d3": "^5.12.0"
+  }
+}

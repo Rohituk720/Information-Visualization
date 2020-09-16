@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <title>Ex3</title>   
+        <script src="https://d3js.org/d3.v5.min.js"></script> 
+    </head> 
+    <body>  
+        <svg id="svg30" width="960" height="50" style="background-color: mistyrose"></svg>
+        <script>
+                var x0 = d3.scaleLinear()
+                .domain([0, 1000])
+                .range([0, 900]);
+                var axis0 = d3.axisBottom()
+                .scale(x0);
+                var redo = false;
+                var svg = d3.select("#svg30");
+                svg.append("g")
+                .attr("class", "axis0")
+                .attr("transform", "translate(30,20)")
+                .call(axis0);
+                svg.on("click", function () {
+                x0.domain([0, redo ? 1000 : 500]);
+                redo = !redo;
+                d3.select(".axis0")
+                .transition()
+                .duration(1000)
+                .call(axis0);
+                });
+        </script>
+        
+    </body> 
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function exampleClosure(arg1, arg2) {
+var localVar = 2;
+function exampleReturned(innerArg) {
+return ((arg1 + arg2) / (localVar + innerArg));
+}
+return exampleReturned;
+}
+var globalVar = exampleClosure(2, 4);
+console.log(globalVar);
+globalVar(4);
+</script>
+<title>Page title</title>
+
+</head>
+<body>
+        function exampleClosure(arg1, arg2) {<br>
+            var localVar = 2;<br>
+            function exampleReturned(innerArg) {<br>
+            return ((arg1 + arg2) / (localVar + innerArg));<br>
+            }<br>
+            return exampleReturned;<br>
+            }<br>
+            var globalVar = exampleClosure(2, 4);<br>
+            console.log(globalVar);<br>
+            globalVar(4);<br>
+        Ans= ƒ exampleReturned(innerArg) {
+            return ((arg1 + arg2) / (localVar + innerArg));
+            }
+
+</body>
+</html>

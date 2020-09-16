@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <meta charset="utf-8">
+        <title>Ex1</title>  
+    </head> 
+    <body>  
+            <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+            <style>
+                    #svg01 path {
+                    stroke: black;
+                    }
+                    #svg01 .tick line {
+                    stroke: black;
+                    }
+                    #svg01 .tick {
+                    stroke: black;
+                    }
+                    #svg01 .tick text {
+                    stroke: none;
+                    fill: black;
+                    }
+            </style>
+        <svg id="svg01" style="background-color: mistyrose"></svg>
+        <script>
+            var data = [
+            {item: "Move-In Day", day: new Date("2019-8-15")},
+            {item: "Classes begin", day: new Date("2019-8-26")},
+            {item: "Labor Day", day: new Date("2019-9-2")},
+            {item: "Fall Recess", day: new Date("2019-10-17")},
+            {item: "Thanksgiving Holiday", day: new Date("2019-11-27")},
+            {item: "Classes End", day: new Date("2019-12-6")},
+            {item: "Study Days", day: new Date("2019-12-7")},
+            {item: "Exams", day: new Date("2019-12-11")},
+            {item: "Winter Recess", day: new Date("2019-12-19")}
+            ]
+            var margin = {top: 20, right: 20, bottom: 20, left: 20}; //step1: set margin
+            var width = 800 - margin.left - margin.right, //step2: set width and height
+            height = 60 - margin.top - margin.bottom;
+            var svg = d3.select("#svg01") //step3: set-up svg
+                        .attr("width", width + margin.left + margin.right)
+                        .attr("height", height + margin.top + margin.bottom)
+                        .append("g")
+                        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            var x = d3.scaleTime() // 1. CREATE SCALE FOR AXIS
+                        .domain([new Date('2019-8-1'), new Date('2019-12-31')])
+                        .range([0, width]);
+
+            var xAxis = d3.axisBottom() // 2. CREATE AXIS AND SET THE SCALE
+                        .scale(x);
+            svg.append("g") 
+                .attr("class", "x axis")  
+                .attr("transform", "translate(0, " + height/2 + ")")   
+                .call(xAxis); 
+
+            svg.selectAll("rect")
+                .data(data)
+                .enter()
+                .append("rect")
+                .text((d) => {return console.log(d.day);})
+                .attr("x", (d) => { return x(d.day);})
+                .attr("y", height - 20)
+                .attr("width", 5)
+                .attr("height", 10)
+                .attr("fill", function(d,i){return color(i);});
+            
+        </script>
+    </body> 
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <title>Ex2</title>   
+    </head> 
+
+    <body> 
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <p>
+            <span id="dataset1" style="border: solid black">Dataset 1</span>
+            <span id="dataset2" style="border: solid black">Dataset 2</span>
+            <span id="dataset3" style="border: solid black">Dataset 3</span> 
+        </p>
+        <svg width="100%" height="200" style="background-color: gainsboro" id="svg_ex2"></svg> 
+        <script> 
+            dataset1 = [{key: "Afghanistan", value: 2.26}, 
+                        {key: "Africa", value: 3.071},
+                        {key: "Algeria", value: 2.131}];
+            dataset2 = [{key: "Angola", value: 3.882},
+                        {key: "Antigua and Barbuda", value: 1.805},
+                        {key: "Australia", value: 1.719}];
+            dataset3 = [{key: "Brazil", value: 1.572},
+                        {key: "South Africa", value: 1.955},
+                        {key: "United Kingdom", value: 1.771},
+                        {key: "United States of America", value: 1.806}];
+ 
+            update(dataset1); 
+
+            d3.select("#dataset1")   
+                .on("click", function () {     
+                    update(dataset1) 
+                    d3.select("#dataset1").style("background-color","yellow")
+                    d3.select("#dataset2").style("background-color","transparent")
+                    d3.select("#dataset3").style("background-color","transparent")
+                }); 
+
+            d3.select("#dataset2")   
+                .on("click", function () {     
+                    update(dataset2) 
+                    d3.select("#dataset1").style("background-color","transparent")
+                    d3.select("#dataset2").style("background-color","yellow")
+                    d3.select("#dataset3").style("background-color","transparent")
+                }); 
+
+            d3.select("#dataset3")   
+                .on("click", function () {     
+                    update(dataset3) 
+                    d3.select("#dataset1").style("background-color","transparent")
+                    d3.select("#dataset2").style("background-color","transparent")
+                    d3.select("#dataset3").style("background-color","yellow")
+                }); 
+
+            d3.select("#svg_ex2")   
+                .on("click", function() {     
+                    update(dataset1);  //reset 
+                }); 
+
+            function update(data) {   
+                var svg = d3.select("#svg_ex2");   
+                var rects = svg.selectAll("rect")     
+                .data(data, function (d) { return d.key; }); 
+
+                rects.exit()  //EXIT SELECTION -- here we decide to exit first     
+                    .transition()     
+                    .delay(1000)     
+                    .duration(1000)     
+                    .style("opacity", 0)     
+                    .remove();
+                
+                var enter = rects.enter()  //ENTER     
+                                .append("rect")     
+                                .attr("fill", function(d) { return d.c; })     
+                                .merge(rects)  // UPDATE + ENTER     
+                                .transition()     
+                                .duration(3000)     
+                                .delay(function(d, i) { return i * 1000; })     
+                                .attr("x", 0)     
+                                .attr("y", function(d, i) { return i * 25; })     
+                                .attr("width", function(d) { return d.value * 100; })     
+                                .attr("height", 20)     
+                                .attr("fill", function(d, i) { return d3.schemeDark2[i]; }); 
+            } 
+        </script>
+
+    </body> 
+</html>

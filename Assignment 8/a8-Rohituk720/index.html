@@ -1,0 +1,47 @@
+
+<html>
+    <head>
+    <meta charset="utf-8">
+    
+    
+    <link rel="stylesheet" href="node_modules/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="a8.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <title> INF 554 Assignment 8 </title>
+    
+    </head>
+    <body>
+            
+            <header >
+                <h1>INF554 Assignment 8</h1>
+            </header>
+            <script src="../node_modules/d3/dist/d3.min.js"></script>
+            <script src="a8.js"></script>
+            <p style="font-family:Georgia;"><b>Dataset Description:</b></p>
+            <p style="font-family:Georgia;">
+             &nbsp;&nbsp;&nbsp;&nbsp;The Population Division of the Department of Economic and Social Affairs of the United Nations Secretariat prepared the 2017 Revision of World Population Prospects representing the latest global set of demographic estimates and projections. 
+             It displays key demographic indicators for selected periods or dates from 2005 to 2050. This visualization cover the Projection of Fertility Rate per Woman from 2005 to 2050.
+            </p>
+            <p style="font-family:Georgia;"><b>DataSource:&nbsp;&nbsp;</b><a style="font-family:Georgia;" href="http://data.un.org/Data.aspx?d=PopDiv&f=variableID%3a54">https://data.un.org </a></p>
+            
+            <p style="font-family:Georgia;"><b>1. Bubble chart using circle packing</b></p>
+            <p style="font-family:Georgia;">The below bubble chart displays the total fertility rates (live births per woman) for 10 countries which are grouped based on the continents for the year 2005-2050. The size bubbles is proportional to the fertility rate for that country.</p>
+            <svg id="chart1" width="732" height="632"></svg> 
+
+            <br>
+            <br>
+
+            <p style="font-family:Georgia;"><b>2. Line chart</b></p>
+            <p style="font-family:Georgia;">The below line chart displays the total fertility rates (live births per woman) for 10 countries from the year 2005 - 2050.</p>
+            <svg id="chart2" width="1000" height="832"></svg>  
+        
+            <br>
+            <br>
+
+            <p style="font-family:Georgia;"><b>3. Pie chart</b></p>
+            <p>The below Pie chart shows the distribution of Total Fertility rates in 5 countries.</p>
+            <svg id="chart3" width="960" height="500"></svg>
+
+    </body>
+    
+</html>

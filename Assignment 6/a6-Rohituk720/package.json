@@ -1,0 +1,22 @@
+{
+  "name": "a6-rohituk720",
+  "version": "1.0.0",
+  "description": "Ex1 = Set up browser sync and loaded D3 and added to the repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INF554/a6-Rohituk720.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/INF554/a6-Rohituk720/issues"
+  },
+  "homepage": "https://github.com/INF554/a6-Rohituk720#readme",
+  "dependencies": {
+    "d3": "^5.12.0"
+  }
+}

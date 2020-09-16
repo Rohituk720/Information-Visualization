@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    
+    var v; //variable declaration, v = undefined
+    v = 'a'; //variable initialization
+    var v = 'a'; //declaration with initialization
+    // Dynamic typing of primitive types
+    var foo = true; //Boolean
+    var foo = null; //Null
+    var foo = undefined; //Undefined
+    var foo = 2.3; //Number
+    var foo = 'bar' //String, specified using '' or ""
+
+    var arr = ['tree', 1765, [0, 1, 2]]; //array
+    arr[0] //access first element in array (indices starts at 0)
+    var obj = {first: 'Joseph', last: 'Priestley'}; //object literal
+    obj.first = obj['first'] //access first . notation is preferred!
+    console.log(obj.first + ' ' + obj.last); //+ concatenates Strings, prints "Joseph Priestley"
+    for (i = 0; i < arr.length; i++) { console.log(arr[i]); } //for loop to iterate over an array
+    if (true) { console.log('true'); } else { console.log('wrong'); } //conditional statement
+    function add1(a, b) { return a + b; } //function declaration, no ';' at the end
+    var add2 = function(a, b) { return a + b; }; //function expression, with ';' at the end!
+    var sum1 = add1(1, 2); //function call
+
+    var arr=["Rohit","Kulkarni",fullname]
+    function fullname(a,b){return a + ' ' + b;}
+    console.log('My first name is '+arr[0]+', my last name is '+arr[1]+',my full name is '+fullname(arr[0],arr[1]));
+    function fullname2(a,b){return a + ' ' + b;}
+    
+    function assertsame(func1,func2){
+        if(fullname('Rohit','Kulkarni')===fullname2('Rohit','Kulkarni'))
+        {
+            console.log(true)
+        }
+
+    }
+    console.log(assertsame(fullname,fullname2))
+</script>
+<title>Page title</title>
+
+</head>
+<body>
+
+
+</body>
+</html>

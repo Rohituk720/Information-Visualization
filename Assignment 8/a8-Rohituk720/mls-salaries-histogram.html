@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="../node_modules/d3/dist/d3.min.js"></script>
+</head>
+
+<body>
+    <style type="text/css">
+        .axis path,
+        .axis line {
+            shape-rendering: crispEdges;
+        }
+        
+        .label {
+            text-anchor: middle;
+        }
+        
+        .bar {
+            fill: steelblue;
+        }
+    </style>
+    <svg id="chart"></svg>
+    <script>
+        d3.csv("mls-salaries-2017.csv", function(d) {
+                return +d.base_salary
+            })
+            .then(function(data) {
+                var margin = {
+                        top: 50,
+                        left: 100,
+                        bottom: 80,
+                        right: 50
+                    },
+                    width = 900 - margin.left - margin.right,
+                    height = 500 - margin.top - margin.bottom;
+
+                var svg = d3.select("#chart")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + ", " + margin.top + ")");
+
+                var x = d3.scaleLinear()
+                    .domain([0, d3.max(data)])
+                    .range([0, width]);
+
+                var bins = d3.histogram()
+                    //.value(d => d.salary)
+                    .domain(x.domain())
+                    .thresholds(x.ticks(30))(data);
+
+                var y = d3.scaleLinear()
+                    .domain([0, d3.max(bins, d => d.length)]).nice()
+                    .range([height, 0])
+
+                var bar = svg.selectAll(".bar")
+                    .data(bins)
+                    .enter()
+                    .append("g")
+                    .attr("class", "bar")
+                    .attr("transform", function(d) {
+                        return "translate(" + x(d.x0) + "," + y(d.length) + ")";
+                    });
+
+                bar.append("rect")
+                    .attr("x", 0)
+                    .attr("width", function(d) {
+                        return x(d.x1) - x(d.x0);
+                    })
+                    .attr("height", function(d) {
+                        return height - y(d.length);
+                    });
+
+                var xAxis = d3.axisBottom()
+                    .tickSizeOuter(0)
+                    .scale(x);
+                // .ticks(10)
+
+                svg.append("g")
+                    .attr("class", "axis")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis)
+                    .selectAll("text")
+                    .style("text-anchor", "middle")
+                    .attr("dx", "-30px")
+                    .attr("dy", "1px")
+                    .attr("transform", function(d) {
+                        return "rotate(-65)"
+                    });
+
+                var yAxis = d3.axisLeft()
+                    .scale(y)
+                    .ticks(10, ".0f");
+
+                svg.append("g")
+                    .attr("class", "axis")
+                    .call(yAxis);
+
+                svg.append("text")
+                    .attr("class", "label")
+                    .attr("transform", "rotate(-90)")
+                    .attr("x", -height / 2)
+                    .attr("y", -margin.left * .5)
+                    .append("tspan").text("# of players");
+
+                svg.append("text")
+                    .attr("class", "label")
+                    .attr("x", width / 2)
+                    .attr("y", -10)
+                    .text("MLS salaries 2017 histogram");
+            });
+    </script>
+
+</body>
+
+</html>

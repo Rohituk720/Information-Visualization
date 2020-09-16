@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <script src="node_modules/d3/dist/d3.min.js"></script>
+        <script src="node_modules/topojson/dist/topojson.min.js"></script>
+        <script src="node_modules/geojson/geojson.min.js"></script>
+        <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+        <script src="choropleth.js"></script>
+        <script src="prop_sym.js"></script>
+        <script src="dot_map.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title> INF 554 Assignment 9 </title>
+    </head>
+
+    <body>  
+        <header >
+            <h1 style="text-align: center">Total fertility rate (live births per woman)</h1>
+        </header>
+        
+        
+        <p style="font-family:Georgia;font-size: 18px">
+            <b> <u>Dataset Description</u></b>:
+            &nbsp;&nbsp;&nbsp;&nbsp;The Population Division of the Department of Economic and Social Affairs of the United Nations Secretariat prepared the 2019 Revision of World Population Prospects representing the latest global set of demographic estimates and projections. 
+            It displays key demographic indicators for selected periods or dates from 1950-1955, for the countries or areas with more than 90,000 inhabitants in 2019. <br><br>
+
+            <b>1. Proportional Symbol Map:</b> Bubble size is proportional to the pecentage of Rural Population, More information can be viewed by hovering on the countries' bubbles.<br>
+            <b>2. Choropleth Map:</b> Color density is proportional to the pecentage of Rural Population, More information can be viewed by hovering on the countries.<br>
+            <b>3. Dot Map:</b> This Map shows the locations of around 1000 Food markets in LA County.
+        </p>
+        <p style="font-family:Georgia;font-size: 18px"><a href="http://data.un.org/Data.aspx?d=PopDiv&f=variableID%3a54">Click here to view the Total Fertility rate data</a></p>
+        <p style="font-family:Georgia;font-size: 18px"><a href="https://data.lacounty.gov">Click here to view LA County Food Markets Data</a></p>
+        
+        <p style="font-family:Georgia;font-size: 18px"> The countries considered for this analysis is as follows:</p>
+            <ol>
+                <li style="font-family:Georgia;font-size: 18px">Afghanistan</li>
+                <li style="font-family:Georgia;font-size: 18px">Australia</li>
+                <li style="font-family:Georgia;font-size: 18px">Brazil</li>
+                <li style="font-family:Georgia;font-size: 18px">India</li>
+                <li style="font-family:Georgia;font-size: 18px">Algeria</li>
+                <li style="font-family:Georgia;font-size: 18px">Angola</li>
+                <li style="font-family:Georgia;font-size: 18px">South Africa</li>
+                <li style="font-family:Georgia;font-size: 18px">United States of America</li>
+                <li style="font-family:Georgia;font-size: 18px">United Kingdom</li>
+                <li style="font-family:Georgia;font-size: 18px">Russia</li>
+            </ol>
+
+        <div id='chart2' style="text-align:center;font-size: larger">
+                <p><h3><b> 1. Proportional Symbol Map</b> </h3></p>
+        </div>
+
+        <br>                   
+       
+        <div id='chart1' style="text-align:center;font-size: larger">
+            <p><h3><b> 2. Choropleth Map</b></h3> </p>
+        </div>
+        
+        <br>
+
+        <div id='chart3' style="text-align:center;font-size: larger">
+            <p><h3><b>3. Dot Map</b></h3></p>
+        </div>
+
+        <br>
+
+    </body>
+</html>

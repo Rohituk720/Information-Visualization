@@ -1,0 +1,28 @@
+body {
+    font-family: "Monotype Corosiva";
+    font-size: 20px;
+border-style: solid;
+border-color: black;
+border-width: 20px;
+}
+
+p,ol {
+font-family: "Monotype Corosiva";
+font-size: 20px;
+
+}
+
+.axis text {
+  font: 13px sans-serif;}
+
+
+h1{text-align: center}
+.axis path,
+.axis line {
+  fill: none;
+}
+
+.bar {
+          fill:rgb(233, 236, 20);
+        }
+

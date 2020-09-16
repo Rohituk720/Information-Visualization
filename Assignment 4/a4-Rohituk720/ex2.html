@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Ex2</title>   
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+<style>
+    div.bar{
+        background-color:blue;
+        width:25px;
+        border: 5px solid green;
+        color: white;
+        font-size: 16px;
+        margin-left: 2px; 
+        display: inline-block;
+        text-align: center;
+        vertical-align: bottom;
+    }
+</style>
+<title>Ex2</title>
+
+</head>
+<body>
+    <script>
+        var data = [200, 150, 300, 700];
+        var text = ["Category 1(200)","Category 2(150)","Category 3(300)","Category 4(700)"]
+        d3.select('body')
+        .selectAll('div')
+        .data(data)
+        .enter()
+        .append('div')
+        .attr('class', 'bar')
+        .style('height', function(d){return d+"px"})
+
+        d3.selectAll('div')
+        .append('div')
+        .data(text)
+        .text(function(d,i){return i})
+    </script>
+     
+</body>
+</html>

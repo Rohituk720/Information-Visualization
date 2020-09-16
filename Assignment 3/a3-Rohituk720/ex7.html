@@ -1,0 +1,22 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <title>Ex7</title>   
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    </head> 
+    <body>  
+        <script>
+            var dataset = [{ width: 200, label: 'Category 1 (200px)' },   { width: 150, label: 'Category 2 (150px)'},    { width: 300, label: 'Category 3 (300px)'},    { width: 700, label: 'Category 4 (700px)'}];
+            d3.select('body')   
+            .selectAll('div')   
+            .data(dataset)   
+            .enter()   
+            .append('div')   
+            .text(function(d) { return d.label})
+            .style("width", function(d) {return d.width+"px"});
+            d3.selectAll("div").style("background-color", "blue").style("height", "25px").style("border", "5px solid green")
+            .style("margin-bottom", "2px").style("text-align", "right").style("font-size", "16px").style("color", "white"); 
+        </script>
+    </body> 
+</html>

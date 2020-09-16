@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <meta charset="utf-8">
+        <title>Ex1</title>   
+        
+    </head> 
+        <body>
+            <img src="1.png" height="700" width="1200"><br>
+            <img src="2.png" height="700" width="1200"><br>
+            Map Type: Raster<br>
+            Map Projection: Albers USA<br>
+            <img src="H1N1_USA_Map_by_confirmed_deaths.svg" height="700" width="1200">
+            <br>
+            <br>
+            Map Type: Raster<br>
+            Map Projection: Albers USA<br>
+            <svg id="map" height="700" width="1200"></svg><br>
+            Map Type: Raster<br>
+            Map Projection: Albers USA<br>
+            <div id="div" ></div>
+            <script src="../node_modules/d3/dist/d3.min.js"></script>
+            <script>
+                d3.select("#map")
+                .append("image")
+                .attr('xlink:href',"H1N1_USA_Map_by_confirmed_deaths.svg")
+                .attr('x',50)
+                .attr('y',50)
+                .attr('width',1200)
+                .attr('height',700)
+
+                d3.xml("H1N1_USA_Map_by_confirmed_deaths.svg") //creates a request for the XML file at the specified url.
+                .then(data => {
+                console.log(data); //DOMString (String) #document
+                console.log(data.documentElement); //returns the Element that is the root element of the document
+                //using javascript ParentNode.append() that inserts a set of Node objects or DOMString objects
+                //document.body.append(data.documentElement);
+                //using d3 selection:
+                
+                var div = d3.select("#div") //select <div id="div"></div>
+                .node() //returns the first (non-null) element in this selection.
+                .append(data.documentElement);
+
+                d3.select("#California")
+                .style('fill','red');
+                });
+            </script>
+
+        </body>
+    
+</html>

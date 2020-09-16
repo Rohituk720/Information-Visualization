@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <meta charset="utf-8">
+        <title>Ex2</title>   
+        
+    </head> 
+        <body>
+            <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+            <div id="caption" style="text-align:center">The color scheme is diverging color with 7 class levels with a critical value and color scheme used is deuteranopia</div>
+            <svg id="color" width="200px" height="600px" style="background-color: grey"></svg>
+            <svg id="color1" width="200px" height="600px" style="background-color: grey"></svg>
+            <script>
+             var colors = ['#762a83','#af8dc3','#e7d4e8','#f7f7f7','#d9f0d3','#7fbf7b','#1b7837'];
+             d3.select("#color")
+             .selectAll('rect')
+             .data(colors)
+             .enter()
+             .append('rect')
+             .attr('fill',function(d,i){ return d})
+             .attr('width','20px')
+             .attr('height','400px')
+             .attr('x',function(d,i){ return i*20; })
+             .attr('y',250)
+
+             var colors1 = d3.schemePRGn[0,7]
+             d3.select("#color1")
+             .selectAll('rect')
+             .data(colors1)
+             .enter()
+             .append('rect')
+             .attr('fill',function(d,i){ return d})
+             .attr('width','20px')
+             .attr('height','400px')
+             .attr('x',function(d,i){ return i*20; })
+             .attr('y',250)
+            </script>
+        </body>
+    
+</html>

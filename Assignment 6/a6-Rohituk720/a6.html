@@ -1,0 +1,82 @@
+
+<html>
+    <head>
+    <meta charset="utf-8">
+	<script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+	<script src="a6.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <title> INF 554 Assignment 6 </title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align:center;
+            display: inline;		
+    }
+    
+    thead th{
+        background: lightgray; 
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    .bar {
+              fill:#800000ff;
+            }
+    .scatter {
+                fill:#800000ff;
+    }
+    .bubble {
+                fill:deeppink;
+    }  
+    body {
+        font-family: "Monotype Corosiva";
+        font-size: 18px;
+    }
+    
+    svg{
+        display: block;
+        margin: auto;
+        border:2px;
+        border-color: black;
+    }
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    </style>
+ </head>
+ <body>
+     
+            <header class="w3-container w3-black" style="text-align:center;">
+                    <h1>INF554 Assignment 6</h1>
+                </header>
+                <p><b><u>Dataset Description</u></b>: World Bank staff estimates based on the United Nations Population Division's World Urbanization Prospects. The Rural population percentage of 10 countries as of the year 2017 and 2018 is visualized using four different visualization techniques.</p>
+                <p><a href="https://data.worldbank.org/indicator/SP.RUR.TOTL.ZS">Click here to view the Data</a></p>
+
+                <p> 1. Slopegraph : View of Rural Population (% of total population) in 2017 and 2018 for each of the 10 countries</p>
+                <img src="Slopegraph.svg" width="800" height="800" class="center">
+
+                <p> 2. Bar Chart: View of Rural Population (% of total population) in 2017 for each of the 10 countries</p>
+                <svg class="bar-chart1" width="800" height="500"></svg>
+
+                <p> 3. Bar Chart: View of Rural Population (% of total population) in 2018 for each of the 10 countries</p>
+                <svg class="bar-chart2" width="800" height="500"></svg>
+
+                <p> 4. Lollipop Chart: View of Rural Population (% of total population) in 2017 for each of the 10 countries</p>
+                <svg class="lollipop-chart1" width="800" height="500"></svg>
+
+                <p> 5. Lollipop Chart: View of Rural Population (% of total population) in 2018 for each of the 10 countries</p>
+                <svg class="lollipop-chart2" width="800" height="500"></svg>
+
+                <p> 6. Bubble Chart: View of Rural Population (% of total population) in 2017 for each of the 10 countries</p>
+                <svg class="bubble-chart1" width="800" height="500"></svg>
+
+                <p> 7. Bubble Chart: View of Rural Population (% of total population) in 2018 for each of the 10 countries</p>
+                <svg class="bubble-chart2" width="800" height="500"></svg>
+              
+ </body>
+</html>

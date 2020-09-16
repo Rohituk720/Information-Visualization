@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <meta charset="utf-8">
+        <title>Ex5</title>   
+        <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+        <style>
+            
+        </style>
+    </head> 
+    <body>  
+        <script>
+            d3.text("cars.csv").then(function(datasetText) {
+            var rows  = d3.csvParseRows(datasetText),
+            table = d3.select('body').append('table')
+                .style("border-collapse", "collapse")
+                .style("border", "2px black solid");
+
+            table.append("tbody")
+            .selectAll("tr").data(rows.slice(1))
+    .enter().append("tr")
+    .selectAll("td")
+    .data(function(d){return d;})
+    .enter().append("td")
+    .style("border", "1px black solid")
+    .style("padding", "5px")
+    .text(function(d){return d;})
+    .style("font-size", "12px");
+
+    table.append("thead").append("tr")
+    .selectAll("th")
+    .data(rows[0])
+    .enter().append("th")
+    .text(function(d) { return d; })
+    .style("border", "1px black solid")
+    .style("padding", "5px")
+});
+        </script>
+    </body> 
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <meta charset="utf-8">
+        <title>Ex1</title>   
+        
+    </head> 
+        <body style="background-color: #ff0000">
+            <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+            <div id="caption" style="text-align:center">Afterimage colors: Cyan cross on Magenta background</div>
+            <div id="colors" style="text-align:center" >
+            <img id='cross' height="90%" src="cross.svg"/>
+            </div>
+            <script>
+            d3.select('body').on("keydown", function () {
+            if (d3.event.code == 'Space') {
+                d3.select('#cross').remove('cross.svg')
+                d3.select('body').style('background-color','white')
+            //- Remove the svg image using selection.remove()
+            //- Set background to white using selection.style()
+            }
+            });
+            </script>
+        </body>
+    
+</html>

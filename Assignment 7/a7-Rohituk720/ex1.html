@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html>   
+    <head>  
+        <meta charset="utf-8">
+        <title>Ex1</title>   
+        <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+    </head> 
+    <body>  
+        <p>Copy of array</p>
+        <div id="slice"></div>
+        <p>The min key</p>
+        <div id="min"></div>
+        <p>The max value</p>
+        <div id="max"></div>
+        <p>Array sorted in ascending order by key</p>
+        <div id="ascbykey"></div>
+        <p>Array sorted in descending order by value</p>
+        <div id="descbykey"></div>
+        <p>Top 5 sorted by value</p>
+        <div id="top5"></div>
+        <p>Array with a label key</p>
+        <div id="map"></div>
+        <script>
+            var data = [{key: "Afghanistan", value: 2.26}, 
+                        {key: "Africa", value: 3.071},
+                        {key: "Algeria", value: 2.131},
+                        {key: "Angola", value: 3.882},
+                        {key: "Antigua and Barbuda", value: 1.805},
+                        {key: "Australia", value: 1.719},
+                        {key: "Brazil", value: 1.572},
+                        {key: "South Africa", value: 1.955},
+                        {key: "United Kingdom", value: 1.771},
+                        {key: "United States of America", value: 1.806}]
+            
+            var slice = data.slice();
+            d3.select('#slice').text(JSON.stringify(slice))
+            var min = d3.min(data, function (d) { return d.key; });
+            var max = d3.max(data, function (d) { return d.value; });
+            d3.select('#min').text(JSON.stringify(min))
+            d3.select('#max').text(JSON.stringify(max))
+
+            var sorted = data.sort(function(a, b) {
+                        return d3.ascending(a.key, b.key); 
+                            });
+            d3.select('#ascbykey').text(JSON.stringify(sorted))
+
+            var sorteddesc = data.sort(function(a, b) {
+                        return d3.descending(a.value, b.value); 
+                            });
+            d3.select('#descbykey').text(JSON.stringify(sorteddesc))
+
+            var sorteddesctop5 = sorteddesc.slice(0,5)
+            d3.select('#top5').text(JSON.stringify(sorteddesctop5))
+
+            var map = data.map(d =>{return {key: d.key, value: d.value, label:d.key+' ('+d.value+')'}});
+            d3.select('#map').text(JSON.stringify(map))
+        </script>
+    </body> 
+</html>
